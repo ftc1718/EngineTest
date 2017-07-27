@@ -34,7 +34,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\shaders\ui.vert" />
-    <None Include="src\shaders\ui.frag" />
+    <None Include="shaders\ui.frag" />
+    <None Include="shaders\ui.vert" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "fileUtils.h"
+#include "log.h"
 
 namespace indie
 {
@@ -9,6 +10,8 @@ namespace indie
 		{
 			FILE* file;
 			file = fopen(fileName.c_str(), "rb");
+
+			INDIE_ASSERT(file, "Could not open the file!");
 
 			fseek(file, 0, SEEK_END);
 			unsigned long length = ftell(file);
@@ -25,7 +28,7 @@ namespace indie
 			return result;
 		}
 
-		BYTE* loadTexture(const char* fileName, int* width, int* height)
+		BYTE* loadTexture(const char* fileName, int* width, int* height, unsigned int* bitsPerPixel)
 		{
 			//image format
 			FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
@@ -45,8 +48,10 @@ namespace indie
 			if (FreeImage_FIFSupportsReading(fif))
 				dib = FreeImage_Load(fif, fileName);
 			//if the image failed to load, return failure
-			if (!dib)
-				return nullptr;
+			/*if (!dib)
+				return nullptr;*/
+
+			INDIE_ASSERT(dib, "Faild to load image(texture)!");
 
 			BYTE* bits = nullptr;
 			//retrieve the image data
@@ -55,12 +60,12 @@ namespace indie
 			*width = FreeImage_GetWidth(dib);
 			*height = FreeImage_GetHeight(dib);
 
-			unsigned int bitsPerPixel = FreeImage_GetBPP(dib);
+			*bitsPerPixel = FreeImage_GetBPP(dib);
 
 #ifdef INDIE_EMSCRIPTEN
 			SwapRedBlue32(dib);
 #endif
-			int size = *width * *height * (bitsPerPixel / 8);
+			int size = *width * *height * (*bitsPerPixel / 8);
 			BYTE* result = new BYTE[size];
 			memcpy(result, bits, size);
 

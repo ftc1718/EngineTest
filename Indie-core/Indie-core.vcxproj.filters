@@ -210,9 +210,6 @@
     <ClCompile Include="ext\freetype-gl\vector.c">
       <Filter>源文件\ext\freetype-gl</Filter>
     </ClCompile>
-    <ClCompile Include="src\utility\fileUtils.cpp">
-      <Filter>源文件\utils</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\batchRenderer2d.cpp">
       <Filter>源文件\graphics</Filter>
     </ClCompile>
@@ -273,6 +270,12 @@
     <ClCompile Include="src\graphics\shader.cpp">
       <Filter>源文件\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\utility\fileUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\textureManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype\include\ft2build.h">
@@ -323,14 +326,8 @@
     <ClInclude Include="src\graphics\window.h">
       <Filter>头文件\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\utility\fileUtils.h">
-      <Filter>头文件\utils</Filter>
-    </ClInclude>
     <ClInclude Include="src\utility\timer.h">
       <Filter>头文件\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\texture.h">
-      <Filter>头文件\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\maths\vec4.h">
       <Filter>头文件\maths</Filter>
@@ -392,15 +389,17 @@
     <ClInclude Include="src\graphics\shader.h">
       <Filter>头文件\graphics</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\shaders\fragmentShader.shader">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="src\shaders\vertexShader.shader">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="src\shaders\fragmentShader-web.shader" />
-    <None Include="src\shaders\vertexShader-web.shader" />
+    <ClInclude Include="src\utility\fileUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\texture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\textureManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
